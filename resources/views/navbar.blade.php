@@ -6,6 +6,10 @@
         <a href="/">Laptop List</a>
         <a href="/create-laptop">Add Laptop</a>
     </div>
+    <form action="/logout" method="POST">
+    @csrf
+        <button type="submit">Logout</button>
+    </form>
 </nav>
 
 <style>

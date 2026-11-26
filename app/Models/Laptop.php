@@ -13,7 +13,8 @@ class Laptop extends Model
         'brand', 
         'model',
         'processor', 
-        'ram'
+        'ram',
+        'image'
     ];
 
     use HasFactory;

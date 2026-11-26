@@ -70,7 +70,7 @@
 <body>
     @include('navbar')
 
-    <form method="POST" action="{{ route('save-laptop') }}">
+    <form method="POST" action="{{ route('save-laptop') }}" enctype="multipart/form-data">
         @csrf
 
         <h2>Laptop Registration</h2>
@@ -106,6 +106,10 @@
             @error('ram')
                 <p class="error">{{ $message }}</p>
             @enderror
+        </div>
+
+        <div>
+            <input name="image" type="file" accept="image/*">
         </div>
 
         <input type="submit" value="Save Laptop">
