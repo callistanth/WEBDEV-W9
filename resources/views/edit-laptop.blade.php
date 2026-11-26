@@ -70,6 +70,12 @@
         html {
             scrollbar-gutter: stable;
         }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: left;
+        }
 
     </style>
 </head>
@@ -77,30 +83,42 @@
 <body>
     @include('navbar')
 
-    <form method="POST" action="{{ route('update-laptop') }}">
+    <form method="POST" action="{{ route('update-laptop', $laptop) }}">
         @csrf
-        <input type="hidden" name="id" value="{{ $laptop->id }}">
+        @method('PUT')
         <h2>Edit Laptop</h2>
         <p>Update your laptop information</p>
 
         <div>
             <label>Brand</label>
             <input type="text" name="brand" value="{{ $laptop->brand }}">
+            @error('brand')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Model</label>
             <input type="text" name="model" value="{{ $laptop->model }}">
+            @error('model')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Processor</label>
             <input type="text" name="processor" value="{{ $laptop->processor }}">
+            @error('processor')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>RAM (GB)</label>
             <input type="number" name="ram" value="{{ $laptop->ram }}">
+            @error('ram')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <input type="submit" value="Update Laptop">

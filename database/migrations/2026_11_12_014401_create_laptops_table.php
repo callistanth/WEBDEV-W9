@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("model");
             $table->string("processor");
             $table->integer("ram");
+            $table->string('image');
             $table->timestamps();
         });
     }

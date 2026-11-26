@@ -142,11 +142,11 @@
             <td>{{ $item->ram }}</td>
             <td>
                 <div class="action">
-                    <a href="/edit-laptop/{{ $item->id }}" class="edit">Edit</a>
+                    <a href="{{ route('edit-laptop', $item) }}" class="edit">Edit</a>
 
-                    <form method="POST" action="{{ route('delete-laptop') }}">
+                    <form method="POST" action="{{ route('delete-laptop', $item) }}">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $item->id }}">
+                        @method('DELETE')
                         <input type="submit" value="Delete">
                     </form>
                 </div>

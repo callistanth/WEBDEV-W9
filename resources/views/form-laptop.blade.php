@@ -58,6 +58,12 @@
         html {
             scrollbar-gutter: stable;
         }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -72,22 +78,34 @@
 
         <div>
             <label>Brand</label>
-            <input type="text" name="brand" placeholder="Enter laptop brand">
+            <input type="text" name="brand" value="{{ old('brand') }}" placeholder="Enter laptop brand">
+            @error('brand')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Model</label>
-            <input type="text" name="model" placeholder="Enter laptop model">
+            <input type="text" name="model" placeholder="Enter laptop model" value={{ old('model') }}>
+            @error('model')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Processor</label>
-            <input type="text" name="processor" placeholder="Enter processor">
+            <input type="text" name="processor" placeholder="Enter processor" value={{ old('processor') }}>
+            @error('processor')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>RAM (GB)</label>
-            <input type="number" name="ram" placeholder="Enter RAM capacity">
+            <input type="number" name="ram" placeholder="Enter RAM capacity" value={{ old('ram') }}>
+            @error('ram')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
 
         <input type="submit" value="Save Laptop">
